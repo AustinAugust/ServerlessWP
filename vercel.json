@@ -1,16 +1,12 @@
 {
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/api/index.js" }
+    "version":2,
+    "builds": [
+      { "src": "*.js", "use": "@vercel/node" }
     ],
-    "functions": {
-        "api/index.js": {
-          "memory": 1024,
-          "includeFiles": "wp/**"
+    "routes": [
+        {
+          "src": "/(.*)",
+          "dest": "/"
         }
-    },
-    "build": {
-      "env": {
-        "NODEJS_AWS_HANDLER_NAME": "handler"
-      }
-    }
-}
+    ]
+  }
